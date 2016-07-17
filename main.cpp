@@ -1,6 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <iterator>
+#include <iomanip>
 #include <cstring>
 
 using namespace std;
@@ -146,25 +147,138 @@ void charCopy() {
     char a[11] = "wearehere!", b[11];
 
     cout << " sizeof(a) / sizeof(a[0]) = " << sizeof(a) / sizeof(a[0]) << endl;
-    cout << "strlen(a) = " << strlen(a) << endl;
+    cout << "strlen(a) = " << strlen(a) << endl; // strlen() 属于<cstring> 中，strlen 遇到\0 会结束，并且不计算结束符
     copy(a, a + 11, b);
     cout << b << "sizeof(b) / sizeof(b[0]) = " << sizeof(b) / sizeof(b[0]) << endl;
 
-    reverse_copy(a,a+10,b);
-    cout<<b<<endl;
+    reverse_copy(a, a + 10, b);
+
+    cout << b << endl;
     for (int i = 0; i < 11; ++i) {
-        cout << b[i]<<endl;
+        cout << b[i] << endl;
     }
 
 }
 
+//1.10 输出符操控定义
+void coutOperFun() {
+    cout.precision(10);
+    const double PI = 13.141592;
+    cout << PI << endl;
+    cout << setprecision(0) << PI << endl;
+}
+
+void exercises1() {
+    int num;
+    int &ref = num;
+    ref = ref + 100;
+    num = num + 50;
+}
+
+void exercises2() {
+    int x = 58, y = 98;
+    const int *p = &x;
+    cout << p << endl;
+    cout << *p << endl;
+    // *p=65;
+    p = &y;
+    cout << p << endl;
+    cout << *p << endl;
+}
+
+void expercises3() {
+    int x = 58, y = 98, z = 55;
+    int *const p = &x;
+    cout << *p << "   " << p << endl;
+    *p = 56;
+    cout << *p << "   " << p << endl;
+//    p= &y;//  p是常量指针，不能作为左值
+    cout << z << endl;
+    z = *p;
+    cout << z << endl;
+}
+
+/**
+ * 分别用ASCII码形式输出 65 和 66
+ */
+void expercises4_1() {
+    int char1 = 55, char2 = 56;
+    cout << char(char1) << endl;
+    cout << char(char2) << endl;
+
+}
+
+/**
+ * 编写一个为int型变量分配100个整型量空间的程序
+ */
+void expercises4_2() {
+    int *pint = new int[100];
+}
+
+/**
+ * 接收输入的15个float 值，并计算最小值和这些值的和
+ */
+void expercises4_3() {
+    float *pfloat = new float[15];
+    float sum = 0.0f;
+    //<limits> 头文件中，获取float 最大值,或者 min =0.0f, 当i=0时，把输入的值赋给min
+    float min = numeric_limits<float>::max();
+
+    cout << "请输入15个Float型数字" << endl;
+    for (int i = 0; i < 15; ++i) {
+        cin >> *(pfloat + i);
+        sum += *(pfloat + i);
+        if (min > *(pfloat + i)) {
+            min = *(pfloat + i);
+        }
+    }
+    cout << "15个float 数字中最小的是：" << min << ", 15个数字的和是：" << sum << endl;
+//    int length = sizeof(pfloat)/ sizeof(pfloat[0]);
+}
+
+/**
+ * 找出数组中4的位置，在将数组a复制给数组b,然后将数组a的内容反转在找出4的位置，
+ * 最后分别输出数组a和b的内容
+ */
+void expercises4_4() {
+    int a[] = {1, 2, 3, 4, 5, 6, 7, 8}, b[8];
+    int *p = find(a, a + 8, 4);
+    if (p == a + 8) {
+        cout << "没有找到值为4的数组元素" << endl;
+    } else {
+        cout << "找到了值为" << *p << "的数组元素" << endl;
+    }
+    copy(a, a + 8, b);
+    reverse(a, a + 8);
+    p = find(a, a + 8, 4);
+    if (p == a + 8) {
+        cout << "没有找到值为4的数组元素" << endl;
+    } else {
+        cout << "找到了值为" << *p << "的数组元素" << endl;
+    }
+    copy(a, a + 8, ostream_iterator<int>(cout)); //ostream_iterator 在 <iterator>
+    cout<<endl;
+    copy(b, b + 8, ostream_iterator<int>(cout));
+}
+
 int main() {
+    // int num;//不初始化，值是不确定的， static 时默认值是0
+    // cout << num << endl;
+
 
     //constTest();
     //1.6
     //coutArray();
     //1.9
-    charCopy();
+    //charCopy();
+    //1.10
+    //coutOperFun();
+//    expercises4_2();
+//    expercises4_3();
+
+    expercises4_4();
     return 0;
+
+
 }
 
