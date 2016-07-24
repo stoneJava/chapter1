@@ -129,7 +129,7 @@ void coutArray() {
     // char char1[] = "ab";
     char char2[] = {'a', 'b'};
     //todo 两者有区别，前者可直接cout输出值，后者会有乱码，不知道是什么。
-    //todo 2016-07-17 01:00 ,发现是应为char2[] 没有 \0 不会截止， char1长度为3
+    //todo 2016-07-17 01:00 ,发现是因为char2[] 没有 \0 不会截止， char1长度为3
     cout << char2 << endl;
 
     //    cout << sizeof(int)  << endl;  //sizeof 计算内存中占用字节数
