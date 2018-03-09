@@ -20,13 +20,13 @@ struct Point {
 
 
 void main1() {
-    int z(0), b(50);//µ÷ÓÃ¹¹Ôìº¯Êı£¬µÈÍ¬ÓÚz = 50
+    int z(0), b(50);//è°ƒç”¨æ„é€ å‡½æ•°ï¼Œç­‰åŒäºz = 50
     Point a;
-    cout << "ÊäÈëÁ½¸öÕûÊı£¨ÒÔ¿Õ¸ñÇø·Ö£©£º";
+    cout << "è¾“å…¥ä¸¤ä¸ªæ•´æ•°ï¼ˆä»¥ç©ºæ ¼åŒºåˆ†ï¼‰ï¼š";
     cin >> a.x >> a.y;
     z = (a.x + a.y) * k;
     z = result(z, b);
-    cout << "¼ÆËã½á¹ûÈçÏÂ£º" << endl;
+    cout << "è®¡ç®—ç»“æœå¦‚ä¸‹ï¼š" << endl;
     cout << "((" << a.x << "+" << a.y << ")*" << k << ")+" << b << "=" << z << endl;
 }
 
@@ -38,7 +38,7 @@ int result(int a, int b) {
 void main2() {
     double *pDouble = new double[3];
     for (int i = 0; i < 3; i++) {
-        cout << "ÇëÊäÈëÒ»¸öÊı×Ö" << endl;
+        cout << "è¯·è¾“å…¥ä¸€ä¸ªæ•°å­—" << endl;
         cin >> *(pDouble + i);
     }
 
@@ -50,12 +50,12 @@ void main2() {
 
 void constTest() {
     int *p1 = new int(5);
-    int *&p2 = p1;
+    int *&p2 = p1; //æ˜¯æŒ‡é’ˆçš„å¼•ç”¨
 
     //  int * * p3 = &p1;
 
-    const int y = 58; //³£Á¿£¬²»ÄÜ¸Ä±äÖµ
-    const int *p = &y;//Ö¸Ïò³£Á¿µÄÖ¸Õë
+    const int y = 58; //å¸¸é‡ï¼Œä¸èƒ½æ”¹å˜å€¼
+    const int *p = &y;//æŒ‡å‘å¸¸é‡çš„æŒ‡é’ˆ
 //    * p =  2;
 
     cout << *p << endl;
@@ -74,34 +74,34 @@ bool compare(int a, int b) {
 
 void coutArray() {
     double a[4] = {1.1, 4.4, 3.3, 2.2}, b[4];
-    // Êı×é¸´ÖÆµ½Á÷ÖĞÊä³ö  p1:¿ªÊ¼Î»ÖÃ£¬p2£º ½áÊøÎ»ÖÃ p3£ºÊä³öÁ÷
-    cout << "Êı×éa" << endl;
+    // æ•°ç»„å¤åˆ¶åˆ°æµä¸­è¾“å‡º  p1:å¼€å§‹ä½ç½®ï¼Œp2ï¼š ç»“æŸä½ç½® p3ï¼šè¾“å‡ºæµ
+    cout << "æ•°ç»„a" << endl;
     copy(a, a + 4, ostream_iterator<double>(cout, " "));
 
     cout << endl;
-    cout << "ÄæÏòÊä³öÊı×éa" << endl;
+    cout << "é€†å‘è¾“å‡ºæ•°ç»„a" << endl;
     reverse_copy(a, a + 4, ostream_iterator<double>(cout, " "));
     cout << endl;
 
-    //¸´ÖÆµ½Êı×éb p1:¿ªÊ¼Î»ÖÃ£¬p2£º ½áÊøÎ»ÖÃ p3£¬Êı×é¿ªÊ¼
+    //å¤åˆ¶åˆ°æ•°ç»„b p1:å¼€å§‹ä½ç½®ï¼Œp2ï¼š ç»“æŸä½ç½® p3ï¼Œæ•°ç»„å¼€å§‹
     copy(a, a + 4, b);
-    //Êä³öÊı×éb
-    cout << "Êı×éa" << endl;
+    //è¾“å‡ºæ•°ç»„b
+    cout << "æ•°ç»„a" << endl;
     copy(b, b + 4, ostream_iterator<double>(cout, " "));
     cout << endl;
     /* for (int i = 0; i < 4; ++i) {
          cout << b[i] << endl;
      }*/
 
-    //¶ÔÊı×éa½øĞĞÅÅĞò
-    sort(a, a + 4); //Ä¬ÈÏÉıĞòÅÅĞò
-//    sort(a,a+4,compare) ½µĞòÅÅĞò ,×Ô¼ºÊµÏÖ
-    //    sort(a, a + 4, greater<double>()); // less<Êı¾İÀàĞÍ>()//´ÓĞ¡µ½´óÅÅĞò greater<Êı¾İÀàĞÍ>()//´Ó´óµ½Ğ¡ÅÅĞò
-    cout << "ÉıĞòÊä³öa" << endl;
+    //å¯¹æ•°ç»„aè¿›è¡Œæ’åº
+    sort(a, a + 4); //é»˜è®¤å‡åºæ’åº
+//    sort(a,a+4,compare) é™åºæ’åº ,è‡ªå·±å®ç°
+    //    sort(a, a + 4, greater<double>()); // less<æ•°æ®ç±»å‹>()//ä»å°åˆ°å¤§æ’åº greater<æ•°æ®ç±»å‹>()//ä»å¤§åˆ°å°æ’åº
+    cout << "å‡åºè¾“å‡ºa" << endl;
     copy(a, a + 4, ostream_iterator<double>(cout, " "));
     cout << endl;
 
-    cout << "ÄæÏòcopyÊı×éaµ½b" << endl;
+    cout << "é€†å‘copyæ•°ç»„aåˆ°b" << endl;
     reverse_copy(a, a + 4, b);
     copy(b, b + 4, ostream_iterator<double>(cout, " "));
     cout << endl;
@@ -110,17 +110,17 @@ void coutArray() {
     double a1[4] = {1.1, 3.3, 2.2, 4.4};
     double *x = find(a1, a1 + 4, 4.4);
 
-    //xµÄµØÖ·³¬³öa1µØÖ··¶Î§¾ÍÊÇÃ»ÓĞÕÒµ½
+    //xçš„åœ°å€è¶…å‡ºa1åœ°å€èŒƒå›´å°±æ˜¯æ²¡æœ‰æ‰¾åˆ°
     cout << (x == a1 + 3) << endl;
     if (x == a1 + 4) {
-        cout << "Ã»ÓĞÕÒµ½ÖµÎª4.4µÄÔªËØ" << endl;
+        cout << "æ²¡æœ‰æ‰¾åˆ°å€¼ä¸º4.4çš„å…ƒç´ " << endl;
     } else {
-        cout << "ÓĞÖµÎª" << *x << "µÄÊı×éÔªËØ" << endl;
+        cout << "æœ‰å€¼ä¸º" << *x << "çš„æ•°ç»„å…ƒç´ " << endl;
     }
     delete x;
 
 
-    //double i Ã¿¼ÓÒ»£¬ÄÚ´æµØÖ·Ôö¼Ó8¸ö×Ö½Ú doubleÀàĞÍ8¸ö×Ö½Ú£¬64Î»
+    //double i æ¯åŠ ä¸€ï¼Œå†…å­˜åœ°å€å¢åŠ 8ä¸ªå­—èŠ‚ doubleç±»å‹8ä¸ªå­—èŠ‚ï¼Œ64ä½
     for (int i = 0; i < 4; ++i) {
         cout << "a1+" << i << " = " << a1 + i << "    value = " << a1[i] << endl;
     }
@@ -128,12 +128,12 @@ void coutArray() {
 
     // char char1[] = "ab";
     char char2[] = {'a', 'b'};
-    //todo Á½ÕßÓĞÇø±ğ£¬Ç°Õß¿ÉÖ±½ÓcoutÊä³öÖµ£¬ºóÕß»áÓĞÂÒÂë£¬²»ÖªµÀÊÇÊ²Ã´¡£
-    //todo 2016-07-17 01:00 ,·¢ÏÖÊÇÒòÎªchar2[] Ã»ÓĞ \0 ²»»á½ØÖ¹£¬ char1³¤¶ÈÎª3
+    //todo ä¸¤è€…æœ‰åŒºåˆ«ï¼Œå‰è€…å¯ç›´æ¥coutè¾“å‡ºå€¼ï¼Œåè€…ä¼šæœ‰ä¹±ç ï¼Œä¸çŸ¥é“æ˜¯ä»€ä¹ˆã€‚
+    //todo 2016-07-17 01:00 ,å‘ç°æ˜¯å› ä¸ºchar2[] æ²¡æœ‰ \0 ä¸ä¼šæˆªæ­¢ï¼Œ char1é•¿åº¦ä¸º3
     cout << char2 << endl;
 
-    //    cout << sizeof(int)  << endl;  //sizeof ¼ÆËãÄÚ´æÖĞÕ¼ÓÃ×Ö½ÚÊı
-    //Í¨¹ısizeof ¿É¼ÆËãÊı×é³¤¶È
+    //    cout << sizeof(int)  << endl;  //sizeof è®¡ç®—å†…å­˜ä¸­å ç”¨å­—èŠ‚æ•°
+    //é€šè¿‡sizeof å¯è®¡ç®—æ•°ç»„é•¿åº¦
     /* for(int i=0;i< sizeof(char1)/ sizeof(char1[0]);i++){
          cout<<char1[i]<<" ";
      }*/
@@ -147,7 +147,7 @@ void charCopy() {
     char a[11] = "wearehere!", b[11];
 
     cout << " sizeof(a) / sizeof(a[0]) = " << sizeof(a) / sizeof(a[0]) << endl;
-    cout << "strlen(a) = " << strlen(a) << endl; // strlen() ÊôÓÚ<cstring> ÖĞ£¬strlen Óöµ½\0 »á½áÊø£¬²¢ÇÒ²»¼ÆËã½áÊø·û
+    cout << "strlen(a) = " << strlen(a) << endl; // strlen() å±äº<cstring> ä¸­ï¼Œstrlen é‡åˆ°\0 ä¼šç»“æŸï¼Œå¹¶ä¸”ä¸è®¡ç®—ç»“æŸç¬¦
     copy(a, a + 11, b);
     cout << b << "sizeof(b) / sizeof(b[0]) = " << sizeof(b) / sizeof(b[0]) << endl;
 
@@ -160,7 +160,7 @@ void charCopy() {
 
 }
 
-//1.10 Êä³ö·û²Ù¿Ø¶¨Òå
+//1.10 è¾“å‡ºç¬¦æ“æ§å®šä¹‰
 void coutOperFun() {
     cout.precision(10);
     const double PI = 13.141592;
@@ -192,14 +192,14 @@ void expercises3() {
     cout << *p << "   " << p << endl;
     *p = 56;
     cout << *p << "   " << p << endl;
-//    p= &y;//  pÊÇ³£Á¿Ö¸Õë£¬²»ÄÜ×÷Îª×óÖµ
+//    p= &y;//  pæ˜¯å¸¸é‡æŒ‡é’ˆï¼Œä¸èƒ½ä½œä¸ºå·¦å€¼
     cout << z << endl;
     z = *p;
     cout << z << endl;
 }
 
 /**
- * ·Ö±ğÓÃASCIIÂëĞÎÊ½Êä³ö 65 ºÍ 66
+ * åˆ†åˆ«ç”¨ASCIIç å½¢å¼è¾“å‡º 65 å’Œ 66
  */
 void expercises4_1() {
     int char1 = 55, char2 = 56;
@@ -209,22 +209,22 @@ void expercises4_1() {
 }
 
 /**
- * ±àĞ´Ò»¸öÎªintĞÍ±äÁ¿·ÖÅä100¸öÕûĞÍÁ¿¿Õ¼äµÄ³ÌĞò
+ * ç¼–å†™ä¸€ä¸ªä¸ºintå‹å˜é‡åˆ†é…100ä¸ªæ•´å‹é‡ç©ºé—´çš„ç¨‹åº
  */
 void expercises4_2() {
     int *pint = new int[100];
 }
 
 /**
- * ½ÓÊÕÊäÈëµÄ15¸öfloat Öµ£¬²¢¼ÆËã×îĞ¡ÖµºÍÕâĞ©ÖµµÄºÍ
+ * æ¥æ”¶è¾“å…¥çš„15ä¸ªfloat å€¼ï¼Œå¹¶è®¡ç®—æœ€å°å€¼å’Œè¿™äº›å€¼çš„å’Œ
  */
 void expercises4_3() {
     float *pfloat = new float[15];
     float sum = 0.0f;
-    //<limits> Í·ÎÄ¼şÖĞ£¬»ñÈ¡float ×î´óÖµ,»òÕß min =0.0f, µ±i=0Ê±£¬°ÑÊäÈëµÄÖµ¸³¸ømin
+    //<limits> å¤´æ–‡ä»¶ä¸­ï¼Œè·å–float æœ€å¤§å€¼,æˆ–è€… min =0.0f, å½“i=0æ—¶ï¼ŒæŠŠè¾“å…¥çš„å€¼èµ‹ç»™min
     float min = numeric_limits<float>::max();
 
-    cout << "ÇëÊäÈë15¸öFloatĞÍÊı×Ö" << endl;
+    cout << "è¯·è¾“å…¥15ä¸ªFloatå‹æ•°å­—" << endl;
     for (int i = 0; i < 15; ++i) {
         cin >> *(pfloat + i);
         sum += *(pfloat + i);
@@ -232,37 +232,37 @@ void expercises4_3() {
             min = *(pfloat + i);
         }
     }
-    cout << "15¸öfloat Êı×ÖÖĞ×îĞ¡µÄÊÇ£º" << min << ", 15¸öÊı×ÖµÄºÍÊÇ£º" << sum << endl;
+    cout << "15ä¸ªfloat æ•°å­—ä¸­æœ€å°çš„æ˜¯ï¼š" << min << ", 15ä¸ªæ•°å­—çš„å’Œæ˜¯ï¼š" << sum << endl;
 //    int length = sizeof(pfloat)/ sizeof(pfloat[0]);
 }
 
 /**
- * ÕÒ³öÊı×éÖĞ4µÄÎ»ÖÃ£¬ÔÚ½«Êı×éa¸´ÖÆ¸øÊı×éb,È»ºó½«Êı×éaµÄÄÚÈİ·´×ªÔÚÕÒ³ö4µÄÎ»ÖÃ£¬
- * ×îºó·Ö±ğÊä³öÊı×éaºÍbµÄÄÚÈİ
+ * æ‰¾å‡ºæ•°ç»„ä¸­4çš„ä½ç½®ï¼Œåœ¨å°†æ•°ç»„aå¤åˆ¶ç»™æ•°ç»„b,ç„¶åå°†æ•°ç»„açš„å†…å®¹åè½¬åœ¨æ‰¾å‡º4çš„ä½ç½®ï¼Œ
+ * æœ€ååˆ†åˆ«è¾“å‡ºæ•°ç»„aå’Œbçš„å†…å®¹
  */
 void expercises4_4() {
     int a[] = {1, 2, 3, 4, 5, 6, 7, 8}, b[8];
     int *p = find(a, a + 8, 4);
     if (p == a + 8) {
-        cout << "Ã»ÓĞÕÒµ½ÖµÎª4µÄÊı×éÔªËØ" << endl;
+        cout << "æ²¡æœ‰æ‰¾åˆ°å€¼ä¸º4çš„æ•°ç»„å…ƒç´ " << endl;
     } else {
-        cout << "ÕÒµ½ÁËÖµÎª" << *p << "µÄÊı×éÔªËØ" << endl;
+        cout << "æ‰¾åˆ°äº†å€¼ä¸º" << *p << "çš„æ•°ç»„å…ƒç´ " << endl;
     }
     copy(a, a + 8, b);
     reverse(a, a + 8);
     p = find(a, a + 8, 4);
     if (p == a + 8) {
-        cout << "Ã»ÓĞÕÒµ½ÖµÎª4µÄÊı×éÔªËØ" << endl;
+        cout << "æ²¡æœ‰æ‰¾åˆ°å€¼ä¸º4çš„æ•°ç»„å…ƒç´ " << endl;
     } else {
-        cout << "ÕÒµ½ÁËÖµÎª" << *p << "µÄÊı×éÔªËØ" << endl;
+        cout << "æ‰¾åˆ°äº†å€¼ä¸º" << *p << "çš„æ•°ç»„å…ƒç´ " << endl;
     }
-    copy(a, a + 8, ostream_iterator<int>(cout)); //ostream_iterator ÔÚ <iterator>
+    copy(a, a + 8, ostream_iterator<int>(cout)); //ostream_iterator åœ¨ <iterator>
     cout<<endl;
     copy(b, b + 8, ostream_iterator<int>(cout));
 }
 
 int main() {
-    // int num;//²»³õÊ¼»¯£¬ÖµÊÇ²»È·¶¨µÄ£¬ static Ê±Ä¬ÈÏÖµÊÇ0
+    // int num;//ä¸åˆå§‹åŒ–ï¼Œå€¼æ˜¯ä¸ç¡®å®šçš„ï¼Œ static æ—¶é»˜è®¤å€¼æ˜¯0
     // cout << num << endl;
 
 
